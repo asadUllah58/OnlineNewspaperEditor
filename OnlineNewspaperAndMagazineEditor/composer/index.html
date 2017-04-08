@@ -1,0 +1,130 @@
+<html>
+
+	<head>
+	
+		<link rel="stylesheet" href="main.css">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<!-- jQuery library -->	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="jquery-ui.js"></script>
+		<!-- Latest compiled JavaScript -->	
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			$("#menubutton").click(function(){
+				$("#innerUl").animate({height: 'toggle'},"slow");
+			});
+			
+			$("#menubutton").mouseover(function(){
+				$("#menubutton").css("cursor","pointer");
+			});
+			
+			$("#box").mouseover(function(){
+				$("#box").css("cursor","pointer");
+				$("#boxDiv").css("visibility","visible");
+				$("#boxDiv").css("width","100px");
+				$("#boxDiv").css("height","100px");
+			});
+			
+			$("#boxDiv").mouseover(function(){
+				$("#boxDiv").css("visibility","visible");
+			});
+			
+			$("#boxDiv").mouseleave(function(){
+				$("#boxDiv").css("visibility","hidden");
+				$("#boxDiv").css("width","0px");
+				$("#boxDiv").css("height","0px");
+			});
+			
+			$("#addBox").draggable({helper:'clone'});
+			
+			$("#mainSection").droppable({
+				//accept:"#addBlock",
+				
+				drop: function(ev, ui){
+					var droppedItem = $(ui.draggable).clone();
+					$("#draggableDiv").append(droppedItem);
+					//alert("item dropped!!");
+				}
+				
+			});
+			$("#draggableDiv").draggable();
+			$("#grid").click(function(){
+				$("#grid1").toggle();
+				$("#grid2").toggle();
+				$("#grid3").toggle();
+				$("#grid4").toggle();
+			});
+			
+			$("#newDiv").draggable();
+			$("#newDiv").resizable();
+		});
+		</script>
+	</head>
+	
+	<body>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Newspaper Editor</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#" id="grid">Grid</a></li>
+					<li><a href="#">?</a></li>
+					<li><a href="#">?</a></li>
+				</ul>
+			</div>
+		</nav>
+		
+		<div class="container-fluid">
+		
+			<div class="row">
+				<div class="col-md-2">
+					<div class="button" >
+						<span id="menubutton">Menu</span>
+					</div><br/><br/>
+					<ul id="innerUl">
+						<li id="box" class="menuItems">
+							<span>box</span>
+							<!--
+							<ul id="boxDiv" style="">
+								<li id="innerBox1">Add Box</li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+							-->
+							<div id = "addBox" style="border:1px solid black; width:100px; height:100px">
+							</div>
+						</li>
+						
+						<li class="menuItems">
+							background
+						</li>
+						<li class="menuItems">
+							images
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-10" id="mainSection">
+					<div id="draggableDiv" style="position: absolute; left:0px; top:0px; z-index:2;">
+					</div>
+					<div id="newDiv" style="width:100px; height:100px; border:1px solid black; position:absolute; z-index:2;">sadas
+					</div>
+					<div style="border:1px solid black; height:400px; position:relative;">
+						<div class="dottedGrid" id="grid1"></div>
+						<div class="dottedGrid" id="grid2"></div>
+						<div class="dottedGrid" id="grid3"></div>
+						<div class="dottedGrid" id="grid4"></div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	
+	</body>
+
+</html>

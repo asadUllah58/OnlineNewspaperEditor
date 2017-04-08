@@ -1,0 +1,88 @@
+.dottedGrid{
+	position:absolute;
+	border: 1px dashed #DCDCDC;
+	z-index:-1;
+}
+
+#grid1{
+	left:100px;
+	top:0px;
+	height:100%;
+}
+
+#grid2{
+	right:100px;
+	top:0px;
+	height:100%;
+}
+
+#grid3{
+	left:0px;
+	top:100px;
+	width:100%;
+}
+
+#grid4{
+	left:0px;
+	bottom:100px;
+	width:100%;
+}
+
+.menuItems{
+	border-radius:15px 50px; 
+	background-color:#45DD5B; 
+	text-align:center; 
+	margin:10px;
+}
+
+.buttonStyle{
+	border:1px solid green; 
+	color: white; 
+	background-color:5BDD45; 
+	text-align:center; 
+	border-radius:3px 3px 3px 3px;
+	position: fixed;
+	left:0px;
+	padding: 5px;
+	display: inline-block;
+}
+
+#backgroundButton:hover{
+	cursor: pointer;
+}
+
+#innerdiv{
+	width:100px; 
+	height: 100px; 
+	position: absolute;
+	left:0px;
+}
+
+#innerUl{
+	list-style:none;
+	z-index:0;
+}
+
+#newDiv:hover{
+	cursor: all-scroll;	
+}
+#addBox:hover{
+	cursor: all-scroll;	
+}
+
+#boxDiv{
+	width:0px; 
+	height:0px; 
+	position:relative;
+	border:1px solid black; 
+	visibility:hidden;
+	display:table;
+}
+#mainSection{
+	position: relative;
+	z-index:1;
+}
+
+#box:hover #boxDiv{
+	visibility: visible;
+}
